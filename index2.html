@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Word Count with CSS</title>
+  <style>
+  
+
+ #textArea{
+  border-width: 25px;
+  margin-left: 420px;
+  margin-top: 250px;
+ }
+ p{
+  margin-left: 420px;
+ }
+    .word-count {
+      font-size: 18px;
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <textarea id="textArea" rows="5" cols="40"></textarea>
+  <p>Word count: <span id="wordCount" class="word-count">0</span></p>
+
+  <script>
+    const textArea = document.getElementById('textArea');
+    const wordCount = document.getElementById('wordCount');
+
+    textArea.addEventListener('input', updateWordCount);
+
+    function updateWordCount() {
+      const text = textArea.value;
+      const words = text.trim().split(/\s+/).filter(Boolean);
+      wordCount.textContent = words.length;
+    }
+  </script>
+</body>
+</html>
